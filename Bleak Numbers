@@ -1,0 +1,28 @@
+Given an integer, check whether it is Bleak or not.
+A number ‘n’ is called Bleak if it cannot be represented as sum of a positive number x and set bit count in x,
+i.e., x + countSetBits(x) is not equal to n for any non-negative number x.
+
+
+PROBLEM: I/P- N=3
+         O/P- 0
+         
+         Explain: 3 is not a Bleak number as (2 + countSetBit(2)) = 3.
+         
+         I/P- N=4
+         O/P- 1
+         
+         Explain: There is no any possible x such that (x + countSetbit(x)) = 4
+         
+         
+         
+SOLUTION:
+
+int is_bleak(int n)
+	{
+	    for(int i=1;i<n;i++){
+	        if((i+(__builtin_popcount(i)))==n){                       //__builtin_popcount(i) is to count set bits in a given no.
+	            return 0;
+	        }
+	    }
+	    return 1;
+	}
