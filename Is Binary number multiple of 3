@@ -1,0 +1,31 @@
+PROBLEM: I/P- S='011'
+         O/P- 1
+         
+         Explain: "011" decimal equivalent is 3, which is divisible by 3.
+         
+         
+SOLUTION:
+
+int isDivisible(string s){
+	    int odd=0, even=0;
+	    int n= s.length();
+	    
+	    for(int i=0;i<n;i++){
+	        if(s[i]=='1'){
+	            if((i%2)!=0) odd++;
+	            if((i%2)==0) even++;
+	        }
+	    }
+	    if((abs(even-odd)%3)==0)
+	        return 1;
+	    else return 0;
+	}
+  
+  
+  
+  
+Approach: 
+  
+1) Get count of all set bits at odd positions (For 23 it’s 3).
+2) Get count of all set bits at even positions (For 23 it’s 1).
+3) If difference of above two counts is a multiple of 3 then number is also a multiple of 3. 
